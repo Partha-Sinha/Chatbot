@@ -110,6 +110,18 @@ for token in tokens:
     
 for token in tokens:
     answerswords2int[token] = len(answerswords2int) + 1
+
+# Creating the inverse dictionary of the answerswords2int dictionary
+answersints2word = {w_i: w for w, w_i in answerswords2int.items()}
+
+# Adding the End of String token to the end of every answers
+for i in range(len(clean_answers)):
+    clean_answers[i] += ' <EOS>'
+
+
+
+
+
     
 
         
