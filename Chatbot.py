@@ -103,6 +103,15 @@ for word, count in word2count.items():
         answerswords2int[word] = word_number
         word_number += 1
 
+# Adding the last tokens to these two dictionaries
+tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
+for token in tokens:
+    questionswords2int[token] = len(questionswords2int) + 1
+    
+for token in tokens:
+    answerswords2int[token] = len(answerswords2int) + 1
+    
+
         
 
 
