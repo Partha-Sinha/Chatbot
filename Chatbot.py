@@ -38,6 +38,13 @@ def clean_text(text):
     text = text.lower()
     text = re.sub(r"i'm", "i am", text)
     text = re.sub(r"he's", "he is", text)
+    text = re.sub(r"don't", "do not", text)
+    text = re.sub(r"there's", "there is", text)
+    text = re.sub(r"doesn't", "does not", text)
+    text = re.sub(r"\'me", " me", text)
+    text = re.sub(r"let's", "let us", text)
+    text = re.sub(r"workin' ", "working ", text)
+    text = re.sub(r"it's", "it is", text)
     text = re.sub(r"she's", "she is", text)
     text = re.sub(r"that's", "that is", text)
     text = re.sub(r"what's", "what is", text)
@@ -48,5 +55,20 @@ def clean_text(text):
     text = re.sub(r"\'d", " would", text)
     text = re.sub(r"wont't", "will not", text)
     text = re.sub(r"can't", "cannot", text)
+    text = re.sub(r"can ' t", "cannot", text)
     text = re.sub(r"[-()\"#/@;:<>{}+-=|.?,~]", "", text)
     return text
+
+# Cleaning the questions
+clean_questions = []
+for question in questions:
+    clean_questions.append(clean_text(question))
+
+# Cleaning the answers
+clean_answers = []
+for answer in answers:
+    clean_answers.append(clean_text(answer))
+
+
+
+
