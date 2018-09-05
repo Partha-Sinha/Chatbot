@@ -87,6 +87,23 @@ for answer in clean_answers:
             word2count[word] += 1
             
 # Creating two dictionaries that map the questions words and the answers to a unique interger
+threshold = 20
+questionswords2int = {}
+word_number = 0
+for word, count in word2count.items():
+    if count >= threshold:
+        questionswords2int[word] = word_number
+        word_number += 1
+
+
+answerswords2int = {}
+word_number = 0
+for word, count in word2count.items():
+    if count >= threshold:
+        answerswords2int[word] = word_number
+        word_number += 1
+
+        
 
 
 
