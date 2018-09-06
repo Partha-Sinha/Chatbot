@@ -118,8 +118,27 @@ answersints2word = {w_i: w for w, w_i in answerswords2int.items()}
 for i in range(len(clean_answers)):
     clean_answers[i] += ' <EOS>'
 
-
-
+# Translating all the questions and the answers into intergers
+# and Replacing all the words that were filtered out by <OUT>
+questions_into_int = []
+for question in clean_questions:
+    ints = []
+    for word in question.split():
+        if word not in questionswords2int:
+            ints.append(questionswords2int['<OUT>'])
+        else:
+            ints.append(questionswords2int[word])
+    questions_to_int.append(ints)
+    
+answers_into_int = []
+for answer in clean_answers:
+    ints = []
+    for word in answer.split():
+        if word not in answerswords2int:
+            ints.append(answerswords2int['<OUT>'])
+        else:
+            ints.append(answerswords2int[word])
+    answers_to_int.append(ints)
 
 
     
